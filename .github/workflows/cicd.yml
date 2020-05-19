@@ -25,7 +25,7 @@ jobs:
       run: docker login -u $Username -p $Password
       
     - name: Publish docker image
-      run: docker push svfpsa/backend:$GITHUB_SHA
+      run: docker push svfpsa/cron-statistics:$GITHUB_SHA
 
     - name: Deploy
       uses: 'deliverybot/helm@v1'
