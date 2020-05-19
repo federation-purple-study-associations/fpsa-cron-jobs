@@ -28,7 +28,7 @@ jobs:
       run: docker push svfpsa/cron-statistics:$GITHUB_SHA
 
     - name: Deploy
-      uses: 'deliverybot/helm@v1'
+      uses: 'deliverybot/helm3@master'
       with:
         release: 'fpsa-cron-statistics'
         namespace: 'fpsa'
