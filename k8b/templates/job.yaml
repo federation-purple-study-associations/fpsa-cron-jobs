@@ -1,3 +1,5 @@
+# CREDITS TO HEXITE SOFTWARE: https://hexite.nl
+
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
@@ -9,7 +11,24 @@ spec:
     spec:
       template:
         spec:
-        restartPolicy: Never
-        containers:
-        - image: "svfpsa/cron-statistics:{{ .Values.tag }}"
-          name: {{ .Values.name }}
+          restartPolicy: Never
+          containers:
+          - image: "svfpsa/cron-statistics:{{ .Values.tag }}"
+            name: {{ .Values.name }}
+            env:
+            - name: DB_HOST
+              value: {{ .Values.db.host }}
+            - name: DB_PORT
+              value: {{ .Values.db.port }}
+            - name: DB_USER
+              valueFrom:
+                secretKeyRef:
+                  name: db
+                  key: DB_USER
+            - name: DB_PASSWORD
+              valueFrom:
+                secretKeyRef:
+                  name: db
+                  key: DB_PASSWORD
+            - name: DB_NAME
+              value: {{ .Values.db.name }}
