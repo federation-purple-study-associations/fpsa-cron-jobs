@@ -33,6 +33,7 @@ jobs:
         release: 'fpsa-cron-statistics'
         namespace: 'fpsa'
         chart: 'k8b'
+        helm: 'helm3'
         token: '${{ github.token }}'
         values: |
           tag: $GITHUB_SHA
