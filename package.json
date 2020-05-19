@@ -1,0 +1,18 @@
+{
+  "name": "fpsa-cron-statistics",
+  "version": "1.0.0",
+  "description": "",
+  "scripts": {
+    "start": "node src/main.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/federation-purple-study-associations/fpsa-cron-jobs.git"
+  },
+  "author": "Bastiaan Verhaar",
+  "license": "ISC",
+  "dependencies": {
+    "dotenv": "^8.2.0",
+    "mariadb": "^2.3.1"
+  }
+}

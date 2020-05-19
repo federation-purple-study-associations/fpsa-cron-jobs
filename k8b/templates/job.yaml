@@ -1,0 +1,14 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+  name: {{ .Values.name }}
+spec:
+  schedule: "0 0 0 * * *"
+  jobTemplate:
+    spec:
+      template:
+        spec:
+        restartPolicy: Never
+        containers:
+        - image: "{{ .Values.repository }}:{{ .Values.tag }}"
+          name: {{ .Values.name }}
