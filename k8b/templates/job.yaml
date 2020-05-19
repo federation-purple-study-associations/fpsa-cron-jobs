@@ -17,9 +17,15 @@ spec:
             name: {{ .Values.name }}
             env:
             - name: DB_HOST
-              value: {{ .Values.db.host }}
+              valueFrom:
+                secretKeyRef:
+                  name: db
+                  key: DB_HOST
             - name: DB_PORT
-              value: "{{ .Values.db.port }}"
+              valueFrom:
+                secretKeyRef:
+                  name: db
+                  key: DB_PORT
             - name: DB_USER
               valueFrom:
                 secretKeyRef:
@@ -31,4 +37,7 @@ spec:
                   name: db
                   key: DB_PASSWORD
             - name: DB_NAME
-              value: {{ .Values.db.name }}
+              valueFrom:
+                secretKeyRef:
+                  name: db
+                  key: DB_NAME

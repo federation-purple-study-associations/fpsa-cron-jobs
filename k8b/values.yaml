@@ -1,6 +1,1 @@
 name: fpsa-cron-statistics
-
-db:
-    host: mariadb
-    port: 3306
-    name: fpsa
