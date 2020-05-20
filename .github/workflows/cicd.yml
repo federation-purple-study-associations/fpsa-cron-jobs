@@ -36,6 +36,6 @@ jobs:
         helm: 'helm3'
         token: '${{ github.token }}'
         values: |
-          tag: $GITHUB_SHA
+          tag: '${{ github.sha }}'
       env:
         KUBECONFIG_FILE: '${{ secrets.KUBECONFIG }}'
