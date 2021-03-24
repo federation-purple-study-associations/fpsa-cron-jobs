@@ -1,5 +1,3 @@
-# CREDITS TO HEXITE SOFTWARE: https://hexite.nl
-
 apiVersion: batch/v1beta1
 kind: CronJob
 metadata:
@@ -15,7 +13,7 @@ spec:
         spec:
           restartPolicy: Never
           containers:
-          - image: "svfpsa/cron-statistics:{{ .Values.tag }}"
+          - image: "docker.pkg.github.com/federation-purple-study-associations/fpsa-cron-database-backup/cron-statistics:{{ .Values.tag }}"
             name: {{ .Values.name }}
             env:
             - name: DB_HOST

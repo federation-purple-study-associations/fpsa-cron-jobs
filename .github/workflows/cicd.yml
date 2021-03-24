@@ -14,18 +14,15 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
+
+    - name: Login
+      run: docker login docker.pkg.github.com -u bastiaanv -p ${{ secrets.GITHUB_TOKEN }}
       
     - name: Build docker image
-      run: docker build . --file Dockerfile --tag svfpsa/cron-statistics:$GITHUB_SHA
-      
-    - name: Login to Docker Hub
-      env:
-        Username: ${{secrets.DOCKER_USERNAME}}
-        Password: ${{secrets.DOCKER_PASSWORD}}
-      run: docker login -u $Username -p $Password
-      
+      run: docker build . --file Dockerfile --tag docker.pkg.github.com/federation-purple-study-associations/fpsa-cron-database-backup/cron-statistics:$GITHUB_SHA
+
     - name: Publish docker image
-      run: docker push svfpsa/cron-statistics:$GITHUB_SHA
+      run: docker push docker.pkg.github.com/federation-purple-study-associations/fpsa-cron-database-backup/cron-statistics:$GITHUB_SHA
 
     - name: Deploy
       uses: 'deliverybot/helm@master'
