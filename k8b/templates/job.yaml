@@ -13,7 +13,7 @@ spec:
         spec:
           restartPolicy: Never
           containers:
-          - image: "docker.pkg.github.com/federation-purple-study-associations/fpsa-cron-database-backup/cron-statistics:{{ .Values.tag }}"
+          - image: "docker.pkg.github.com/federation-purple-study-associations/fpsa-cron-statistics/cron-statistics:{{ .Values.tag }}"
             name: {{ .Values.name }}
             env:
             - name: DB_HOST
