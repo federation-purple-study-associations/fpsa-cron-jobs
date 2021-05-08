@@ -9,10 +9,10 @@ spec:
   failedJobsHistoryLimit: 2
   jobTemplate:
     spec:
-      imagePullSecrets:
-      - name: regcred
       template:
         spec:
+          imagePullSecrets:
+          - name: regcred
           restartPolicy: Never
           containers:
           - image: "docker.pkg.github.com/federation-purple-study-associations/fpsa-cron-statistics/cron-statistics:{{ .Values.tag }}"
